@@ -1,3 +1,18 @@
 import { Routes } from '@angular/router';
+import { PersonalDetails } from './features/personal-details/personal-details';
+import { VehicleLoan } from './features/vehicle-loan/vehicle-loan';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    {
+        path: '',
+        redirectTo: 'personal-details',
+        pathMatch: 'full'
+    },
+    {
+        path: 'personal-details',
+        component: PersonalDetails,
+    }, {
+        path: 'vehicle-loan',
+        component: VehicleLoan
+    }
+];

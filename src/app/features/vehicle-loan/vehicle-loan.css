@@ -1,0 +1,405 @@
+:host {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  column-gap: 36px;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #0f172a;
+  background-color: #fafbfc;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+h1 {
+  grid-column: 1;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0066cc;
+  margin: 0 0 6px;
+}
+
+h2 {
+  grid-column: 1;
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+}
+
+:host > p {
+  grid-column: 1;
+  font-size: 0.95rem;
+  color: #64748b;
+  margin: 0 0 28px;
+  line-height: 1.5;
+}
+
+/* Card 1: Your Vehicle */
+section:nth-of-type(1) {
+  grid-column: 1;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 24px 28px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+  margin-bottom: 24px;
+}
+
+section:nth-of-type(1) form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 16px;
+  row-gap: 8px;
+}
+
+h3 {
+  margin: 0 0 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+section:nth-of-type(1) h3 {
+  grid-column: 1 / -1;
+}
+
+section:nth-of-type(1) label {
+  display: block;
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+section:nth-of-type(1) label:nth-of-type(1) { grid-column: 1; grid-row: 2; }
+section:nth-of-type(1) select:nth-of-type(1) { grid-column: 1; grid-row: 3; }
+section:nth-of-type(1) label:nth-of-type(2) { grid-column: 2; grid-row: 2; }
+section:nth-of-type(1) select:nth-of-type(2) { grid-column: 2; grid-row: 3; }
+section:nth-of-type(1) label:nth-of-type(3) { grid-column: 3; grid-row: 2; }
+section:nth-of-type(1) select:nth-of-type(3) { grid-column: 3; grid-row: 3; }
+
+select {
+  display: block;
+  width: 100%;
+  height: 46px;
+  padding: 0 36px 0 14px;
+  box-sizing: border-box;
+  font-size: 0.925rem;
+  font-weight: 500;
+  font-family: inherit;
+  color: #0f172a;
+  background-color: #fff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 6px;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2364748b'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+select:hover { border-color: #94a3b8; }
+select:focus { outline: none; border-color: #0f172a; box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.08); }
+
+/* Card 2: Your Loan & Tenure */
+section:nth-of-type(2) {
+  grid-column: 1;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 24px 28px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+}
+
+section:nth-of-type(2) form {
+  display: block;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 24px;
+}
+
+section:nth-of-type(2) form h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px;
+}
+
+section:nth-of-type(2) form h2::before {
+  content: "₹";
+  font-size: 1.6rem;
+  margin-right: 2px;
+}
+
+section:nth-of-type(2) form span {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-right: 18px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: #0f2744;
+  border-radius: 4px;
+  outline: none;
+  margin: 24px 0 12px;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 28px;
+  background: #fff;
+  border: 2px solid #0f2744;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  cursor: grab;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 22px;
+  height: 28px;
+  background: #fff;
+  border: 2px solid #0f2744;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  cursor: grab;
+}
+
+.funding {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 6px;
+}
+
+section:nth-of-type(2) > h3 {
+  border-bottom: none;
+  margin: 0 0 12px;
+  padding-bottom: 0;
+  font-size: 0.95rem;
+}
+
+section:nth-of-type(2) > div.funding {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 10px;
+}
+
+button {
+  height: 48px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 6px;
+  background: #fff;
+  color: #0f172a;
+  font-size: 0.925rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+button:hover {
+  border-color: #0f172a;
+  background-color: #f8fafc;
+}
+
+button:focus,
+button:active,
+button.active {
+  background-color: #0f2744;
+  color: #fff;
+  border-color: #0f2744;
+}
+
+section:nth-of-type(2) > p {
+  font-size: 0.825rem;
+  color: #64748b;
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+
+/* Card 3: Loan Summary */
+section:nth-of-type(3) {
+  grid-column: 2;
+  grid-row: 1 / span 6;
+  align-self: start;
+  position: sticky;
+  top: 32px;
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 4px 16px -4px rgba(15, 23, 42, 0.06);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 12px;
+  column-gap: 16px;
+  align-items: center;
+}
+
+section:nth-of-type(3) h3 {
+  grid-column: 1 / -1;
+  margin: 0 0 8px;
+  padding-bottom: 12px;
+  font-size: 0.775rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #475569;
+  display: flex;
+  justify-content: space-between;
+}
+
+section:nth-of-type(3) h3::after {
+  content: "READ-ONLY";
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+section:nth-of-type(3) p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+section:nth-of-type(3) strong:not(.emi) {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-align: right;
+}
+
+section:nth-of-type(3) strong:not(.emi)::before {
+  content: "₹";
+}
+
+p.montly.EMI {
+  grid-column: 1 / -1;
+  margin-top: 14px;
+  padding-top: 18px;
+  border-top: 1px solid #f1f5f9;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #0f172a;
+}
+
+section:nth-of-type(3) strong.emi {
+  grid-column: 1 / -1;
+  font-size: 2.85rem;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+  text-align: left;
+  line-height: 1;
+  margin: 4px 0 6px;
+}
+
+section:nth-of-type(3) strong.emi::before {
+  content: "₹";
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin-right: 2px;
+}
+
+section:nth-of-type(3) strong.emi + p {
+  grid-column: 1 / -1;
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 0 0 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* Eligibility Box */
+.eligibility {
+  grid-column: 1 / -1;
+  border-radius: 6px;
+  padding: 16px 18px;
+  margin-top: 16px;
+  transition: all 0.2s;
+}
+
+.eligibility h4 {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.eligibility p {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+/* 1. Eligible State (Green) */
+.eligibility,
+.eligibility.eligible {
+  background-color: #245136;
+  color: #fff;
+}
+.eligibility h4,
+.eligibility.eligible h4 { color: #fff; }
+.eligibility h4::before,
+.eligibility.eligible h4::before { content: "✓"; font-size: 0.95rem; }
+.eligibility p,
+.eligibility.eligible p { color: #e2e8f0; }
+
+/* 2. Under Review State (Amber) */
+.eligibility.under-review {
+  background-color: #fffbeb;
+  border: 1.5px solid #f59e0b;
+  color: #78350f;
+}
+.eligibility.under-review h4 { color: #92400e; }
+.eligibility.under-review h4::before { content: "⏳"; font-size: 0.85rem; }
+.eligibility.under-review p { color: #78350f; }
+
+/* 3. Not Eligible State (Red) */
+.eligibility.not-eligible {
+  background-color: #fef2f2;
+  border: 1.5px solid #ef4444;
+  color: #7f1d1d;
+}
+.eligibility.not-eligible h4 { color: #991b1b; }
+.eligibility.not-eligible h4::before { content: "✕"; font-size: 0.9rem; font-weight: 800; }
+.eligibility.not-eligible p { color: #7f1d1d; }
+
+@media (max-width: 960px) {
+  :host {
+    display: block;
+    padding: 24px 16px 40px;
+  }
+
+  section:nth-of-type(1) form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  section:nth-of-type(1) label { margin-top: 10px; }
+  section:nth-of-type(1) label:first-of-type { margin-top: 0; }
+  section:nth-of-type(3) { position: static; margin-top: 28px; }
+}

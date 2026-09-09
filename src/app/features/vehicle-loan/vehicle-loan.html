@@ -1,0 +1,82 @@
+<h1>Vehicle & Loan Details</h1>
+<h2>Which two-wheelerare you buying?</h2>
+<p>We use the on-road price for your city to work out what we can fund</p>
+
+<section>
+    <form [formGroup]="vehicleLoan">
+        <h3>Your Vehicle</h3>
+
+        <label>Vehicle Make</label>
+        <select formControlName="vehiclemake" (change)="getModel(vehicleLoan.controls.vehiclemake.value!)">
+            @for(vehicle of vehicleAPI; track vehicle.id) {
+            <option [value]="vehicle.id">{{vehicle.name}}</option>
+            }
+        </select>
+
+        <label>Vehicle Model</label>
+        <select formControlName="vehiclemodel" (change)="getvariant(vehicleLoan.controls.vehiclemodel.value!)">
+            @for(model of vehicleModelAPI; track model.id) {
+            <option [value]="model.id">{{model.name}}</option>
+            }
+        </select>
+
+        <label>Variant</label>
+        <select formControlName="variant">
+            @for(variant of variantAPI; track variant.id) {
+            <option [value]="variant.id">{{variant.name}}</option>
+            }
+        </select>
+    </form>
+</section>
+
+<section>
+    <form [formGroup]="loan">
+        <h3>Your Loan</h3>
+        <br>
+        <h2> {{loanamount}}</h2>
+        <span>{{ fundingPercentage}}% of on-road price</span>
+        <span>Down payment {{ downpayement }}</span>
+        <input type="range" formControlName="slider" min="20000" max="300000" step="1000">
+        <div class="funding">
+            <span>₹20,000 - ₹3,00,000</span>
+            <span>Funding cap ₹1,57,590 — 85% of the on-road price</span>
+        </div>
+    </form>
+
+    <h3>Tenure</h3>
+    <div class="funding">
+        <button type="button" [class.active]="tenure === 12" (click)="selectTenure(12)">12 Months</button>
+        <button type="button" [class.active]="tenure === 24" (click)="selectTenure(24)">24 Months</button>
+        <button type="button" [class.active]="tenure === 36" (click)="selectTenure(36)">36 Months</button>
+        <button type="button" [class.active]="tenure === 48" (click)="selectTenure(48)">48 Months</button>
+    </div>
+    <p>A longer tenure lowers the EMI but costs more interest</p>
+</section>
+
+<section>
+    <h3>Your loan summary</h3>
+
+    <p>on-road price</p>
+    <strong> {{onRoadPrice}} </strong>
+
+    <p>Interest Rate</p>
+    <strong> {{interestRate}} </strong>
+
+    <p class="montly EMI">Monthly EMI</p>
+    <strong class="emi"> {{emi}} </strong>
+    <p>for {{tenure}} Months</p>
+
+    <p>Total interest payable</p>
+    <strong>{{interestPayable}}</strong>
+
+    <p>Total amount payable</p>
+    <strong>{{amountPayable}}</strong>
+
+    <div class="eligibility"
+         [class.eligible]="eligibilityStatus === 'You\'re eligible'"
+         [class.under-review]="eligibilityStatus === 'Under review'"
+         [class.not-eligible]="eligibilityStatus === 'Not eligible'">
+        <h4>{{ eligibilityStatus }}</h4>
+        <p>{{ eligibilityMessage }}</p>
+    </div>
+</section>

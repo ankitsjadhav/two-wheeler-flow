@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Details</title>
+</head>
+
+<body>
+    <h1>Personal Details</h1>
+    <form [formGroup]=personaldetails>
+        <label>Name</label>
+        <input type="text" formControlName="name" placeholder="Chris Evans">
+        @if (personaldetails.controls.name.invalid && personaldetails.controls.name.touched) {
+        <small class="error">Please enter a valid name</small>
+        }
+
+        <label>Date of birth</label>
+        <input type="date" formControlName="dob">
+        @if (personaldetails.controls.dob.invalid && personaldetails.controls.dob.touched) {
+        <small class="error">Please enter a valid date of birth (age 21-60).</small>
+        }
+
+        <label>Gender</label>
+        @for (gender of genderoptions; track gender) {
+        <input type="radio" formControlName="gender" [value]="gender">
+        {{gender}}
+        }
+        @if (personaldetails.controls.gender.invalid && personaldetails.controls.gender.touched) {
+        <small class="error">please select your gender</small>
+        }
+
+        <label>PAN</label>
+        <input type="text" formControlName="pan" (input)="onPanInput($event)">
+
+        @if (personaldetails.controls.pan.invalid && personaldetails.controls.pan.touched) {
+        <small class="error">Please enter a valid PAN</small>
+        }
+
+        <label>Employement Type</label>
+        <select formControlName="employement">
+            <option value="salarid">Salaried</option>
+            <option value="Self-Employed">Self-Employed</option>
+        </select>
+
+        @if (personaldetails.controls.employement.invalid && personaldetails.controls.employement.touched) {
+        <small class="error">Please select your employment type</small>
+        }
+
+        <label>Net Monthly Income</label>
+        <input type="number" formControlName="income">
+
+        @if (personaldetails.controls.income.invalid && personaldetails.controls.income.touched) {
+        <small class="error">Monthly income must be at least ₹15,000</small>
+        }
+
+        <label>Pincode</label>
+        <input type="text" formControlName="pincode">
+
+        @if(personaldetails.controls.pincode.invalid && personaldetails.controls.pincode.touched) {
+        <small class="error">Please enter a valid 6-digit pincode</small>
+        }
+
+        <label>City</label>
+        <input type="text" formControlName="city">
+        @if(personaldetails.controls.city.invalid && personaldetails.controls.city.touched) {
+        <small class="error">City is required</small>
+        }
+    </form>
+    <button (click)="onContinue()">Continue</button>
+</body>
+
+</html>
