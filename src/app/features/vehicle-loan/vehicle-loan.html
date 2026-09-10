@@ -72,11 +72,11 @@
     <p>Total amount payable</p>
     <strong>{{amountPayable}}</strong>
 
-    <div class="eligibility"
-         [class.eligible]="eligibilityStatus === 'You\'re eligible'"
-         [class.under-review]="eligibilityStatus === 'Under review'"
-         [class.not-eligible]="eligibilityStatus === 'Not eligible'">
+    <div class="eligibility" [class.eligible]="eligibilityStatus === 'You\'re eligible'"
+        [class.under-review]="eligibilityStatus === 'Under review'"
+        [class.not-eligible]="eligibilityStatus === 'Not eligible'">
         <h4>{{ eligibilityStatus }}</h4>
         <p>{{ eligibilityMessage }}</p>
     </div>
 </section>
+<button type="button" (click)="onContinue()">Continue to Bank & verify</button>

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { JourneyStateService } from '../../core/services/journey-state.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vehicle-loan',
@@ -17,6 +18,7 @@ export class VehicleLoan {
 
   private http = inject(HttpClient);
   private journeyState = inject(JourneyStateService);
+  private router = inject(Router);
 
   vehicleLoan = new FormGroup({
 
@@ -138,5 +140,13 @@ export class VehicleLoan {
       return `Your EMIs would use ${this.emiPercentage}% of your income. A credit officer will review this within one working day.`;
     }
     return `Your income supports an EMI of ₹${this.emi}. Final approval after document verification.`;
+  }
+
+  onContinue() {
+    if (this.vehicleLoan.valid && this.loan.valid) {
+      return this.router.navigate(['/bank'])
+    } else {
+      return this.vehicleLoan.untouched && this.loan.untouched
+    }
   }
 }

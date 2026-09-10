@@ -1,1 +1,30 @@
-<p>bank-otp works!</p>
+<h1>Bank Selection & OTP</h1>
+<section>
+    <h3>Bank Details</h3>
+    <form [formGroup]="bank">
+        <label>Bank Name</label>
+        <select formControlName="bankName">
+            @for (bank of bankNameAPI; track bank) {
+            <option [value]="bank">{{bank}}</option>
+            }
+        </select>
+        <label>Mobile Number</label>
+        <input formControlName="mobile" type="number">
+        @if (bank.controls.mobile.invalid && bank.controls.mobile.touched) {
+        <small>Please enter a valid Mobile Number</small>
+        }
+        <div>
+            <label>OTP</label>
+            <input type="number" formControlName="otp">
+
+            <button [disabled]="!canResend" (click)="resend()">Resend</button>
+            @if (resendTimer > 0) {
+            <span>Wait {{ resendTimer }} seconds</span>
+            }
+            @if (resendMessage) {
+            <p>{{ resendMessage }}</p>
+            }
+        </div>
+    </form>
+    <button (click)="onContinue()" type="submit">Submit</button>
+</section>

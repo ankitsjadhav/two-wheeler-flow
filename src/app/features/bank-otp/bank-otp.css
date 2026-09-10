@@ -1,0 +1,302 @@
+/* ==========================================================================
+   Step 3: Bank Selection & OTP - Two-Wheeler Flow
+   Polished Modern NBFC Form Styling
+   ========================================================================== */
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background: linear-gradient(145deg, #f1f5f9 0%, #e2e8f0 100%);
+  padding: 40px 16px 60px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #1e293b;
+  box-sizing: border-box;
+}
+
+/* Page Heading */
+h1 {
+  max-width: 500px;
+  margin: 0 auto 22px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0f2744;
+  letter-spacing: -0.025em;
+}
+
+/* Card Container */
+section {
+  max-width: 500px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px 32px 36px;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top Accent Stripe */
+section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #004b99 0%, #0066cc 50%, #00a3e0 100%);
+}
+
+/* Section Header */
+h3 {
+  margin: 0 0 20px 0;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f2744;
+  letter-spacing: -0.01em;
+}
+
+/* Form Container */
+form {
+  display: block;
+}
+
+/* Field Labels */
+label {
+  display: block;
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: #475569;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  letter-spacing: 0.01em;
+}
+
+form > label:first-of-type {
+  margin-top: 0;
+}
+
+/* Inputs & Dropdown */
+select,
+input[type="number"] {
+  display: block;
+  width: 100%;
+  height: 46px;
+  padding: 0 14px;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #0f172a;
+  background-color: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* Hover States */
+select:hover,
+input[type="number"]:hover {
+  background-color: #ffffff;
+  border-color: #94a3b8;
+}
+
+/* Focus States */
+select:focus,
+input[type="number"]:focus {
+  background-color: #ffffff;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+}
+
+/* Select Dropdown Chevron */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2364748b'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 38px;
+}
+
+/* Clean Number Spinners */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+/* Validation Error Messages */
+small {
+  display: block;
+  color: #dc2626;
+  font-size: 0.785rem;
+  font-weight: 500;
+  margin-top: 4px;
+  line-height: 1.35;
+}
+
+form > div small {
+  grid-column: 1 / -1;
+  margin-top: 2px;
+}
+
+/* OTP Field & Resend Button Row */
+form > div {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 12px;
+  row-gap: 6px;
+  align-items: center;
+}
+
+form > div label {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+form > div input[formControlName="otp"] {
+  height: 48px;
+  letter-spacing: 0.25em;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Resend Button */
+form > div button {
+  height: 48px;
+  padding: 0 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #0066cc;
+  background-color: #eff6ff;
+  border: 1.5px solid #bfdbfe;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+form > div button:hover:not(:disabled) {
+  background-color: #dbeafe;
+  border-color: #93c5fd;
+  color: #0052cc;
+}
+
+form > div button:active:not(:disabled) {
+  background-color: #bfdbfe;
+  transform: translateY(1px);
+}
+
+form > div button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+}
+
+form > div button:disabled {
+  background-color: #f1f5f9;
+  color: #94a3b8;
+  border-color: #e2e8f0;
+  cursor: not-allowed;
+}
+
+/* Countdown Timer */
+form > div span {
+  grid-column: 1 / -1;
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* Status / Feedback Message */
+form > div p {
+  grid-column: 1 / -1;
+  font-size: 0.825rem;
+  font-weight: 500;
+  color: #047857;
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin: 4px 0 0 0;
+  line-height: 1.4;
+}
+
+/* Submit Action Button */
+section > button[type="submit"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  margin-top: 28px;
+  background: linear-gradient(135deg, #004b99 0%, #0066cc 100%);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  letter-spacing: 0.02em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.28);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+section > button[type="submit"]:hover {
+  background: linear-gradient(135deg, #003d7a 0%, #0055ab 100%);
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.38);
+  transform: translateY(-1px);
+}
+
+section > button[type="submit"]:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(0, 102, 204, 0.25);
+}
+
+section > button[type="submit"]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px #0066cc;
+}
+
+section > button[type="submit"]:disabled {
+  background: #cbd5e1;
+  color: #94a3b8;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 560px) {
+  :host {
+    padding: 24px 14px 40px;
+  }
+
+  section {
+    padding: 24px 20px 28px;
+    border-radius: 12px;
+  }
+
+  h1 {
+    font-size: 1.35rem;
+    margin-bottom: 16px;
+  }
+}
